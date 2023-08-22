@@ -1,9 +1,9 @@
 export const Principal = () => {
   return (
     <div className="container mt-4">
-      <div className="row">
-        <div className="col-md-12">
-          <div className="border p-4 d-flex justify-content-between align-items-center">
+      <div className="card bg-light">
+        <div className="card-body">
+          <div className="row">
             <div className="col-md-6">
               <h1
                 className="text-center font-weight-bold mb-3"
@@ -29,11 +29,11 @@ export const Principal = () => {
                 bebida.
               </p>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6 d-flex align-items-center justify-content-center">
               <img
                 src="./images/presentacion.jpeg"
-                alt="#"
-                className="img-fluid"
+                alt="restaurante"
+                className="img-fluid rounded smaller-image"
               />
             </div>
           </div>

@@ -10,7 +10,7 @@ export const Catalogo = () => {
             <img
               src="../images/pink.jpeg"
               className="card-img-top menu-image"
-              alt="carne asada"
+              alt="vaso"
             />
             <div className="card-body">
               <h3 className="card-title">HSB Pink</h3>
@@ -23,24 +23,11 @@ export const Catalogo = () => {
             <img
               src="../images/pinkblack.jpeg"
               className="card-img-top"
-              alt="ceviche"
+              alt="vaso2"
             />
             <div className="card-body">
               <h3 className="card-title">2 HSB</h3>
               <p className="card-text">$59,990</p>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <div className="card mb-4">
-            <img
-              src="../images/destapador.jpg"
-              className="card-img-top"
-              alt="vigoron"
-            />
-            <div className="card-body">
-              <h3 className="card-title">destapador</h3>
-              <p className="card-text">$8,990</p>
             </div>
           </div>
         </div>

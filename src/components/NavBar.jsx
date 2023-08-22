@@ -37,7 +37,7 @@ export const NavBar = ({ user, setUser }) => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/Catalogo">
+              <NavLink className="nav-link" to="/catalogo">
                 Catalogo
               </NavLink>
             </li>
@@ -48,7 +48,7 @@ export const NavBar = ({ user, setUser }) => {
             </li>
             <li className="nav-item">
               {!user ? (
-                <NavLink className="nav-link" to="/administrador">
+                <NavLink className="nav-link" to="/usuario">
                   Iniciar Sesion
                 </NavLink>
               ) : (
