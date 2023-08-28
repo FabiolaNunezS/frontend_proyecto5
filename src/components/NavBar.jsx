@@ -1,6 +1,5 @@
 import { signOut } from "firebase/auth";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-// import { auth } from "../../firebase/firebase";
 
 export const NavBar = ({ user, setUser }) => {
   const navegador = useNavigate();
@@ -56,6 +55,11 @@ export const NavBar = ({ user, setUser }) => {
                   Cerrar Sesion
                 </Link>
               )}
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/Carrito">
+                Carrito
+              </NavLink>
             </li>
           </ul>
         </div>

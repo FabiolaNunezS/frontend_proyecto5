@@ -4,8 +4,10 @@ import { useState, useContext } from "react";
 import { UserContext } from "../context/user/userContext";
 import { types } from "../context/user/userReducer";
 import axios from "axios";
+import jwt from "jwt-decode";
 
 export const Usuario = () => {
+  const [isFetching, setIsFetching] = useState(false);
   const [, dispatch] = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -23,23 +25,37 @@ export const Usuario = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsFetching(true);
     try {
-      const { data } = axios.post("http://localhost:5173/user/login", user, {
-        headers: {
-          "Content-Type": "application/json",
-        },
+      const { data } = await axios.post(
+        "http://localhost:4000/users/login",
+        user,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const tokenDecodificado = jwt(data.token);
+      console.log(tokenDecodificado);
+      dispatch({
+        type: types.setUserState,
+        payload: tokenDecodificado,
       });
-
       window.alert("usuario logueado");
-      // setUser(initialUser);
+      setIsFetching(false);
       navigate("/");
+      // setUser(initialUser);
     } catch (error) {
+      window.alert("error al iniciar sesion");
+      console.log(error);
       dispatch({
         type: types.setError,
         payload: error,
       });
+      setIsFetching(false);
     }
   };
 
@@ -71,8 +87,15 @@ export const Usuario = () => {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" id="submit" className="btn btn-primary">
-          Iniciar sesión
+        <button
+          type="submit"
+          id="submit"
+          className="btn btn-primary"
+          onClick={handleSubmit}
+          disabled={isFetching}
+        >
+          {isFetching ? "cargando..." : "Ingresar"}
+          {/* Iniciar sesión */}
         </button>
       </form>
     </>

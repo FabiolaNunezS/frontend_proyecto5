@@ -10,8 +10,9 @@ export const HomePage = () => {
     <>
       <main>
         <Carousel />
+        {user && <h2>Bienvenido {user.user.username}</h2>}
         <Principal />
-        {JSON.stringify(user, null, 2)}
+        {/* {JSON.stringify(user, null, 2)} */}
       </main>
     </>
   );

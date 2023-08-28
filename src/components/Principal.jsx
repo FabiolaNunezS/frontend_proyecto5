@@ -1,3 +1,6 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
 export const Principal = () => {
   return (
     <div className="container mt-4">
@@ -28,6 +31,11 @@ export const Principal = () => {
                 tranquilidad en tus fiestas sin preocuparte de que se enfríe tu
                 bebida.
               </p>
+              <div className="d-flex justify-content-center">
+                <Link to="/catalogo" className="btn btn-primary">
+                  Ver Catálogo
+                </Link>
+              </div>
             </div>
             <div className="col-md-6 d-flex align-items-center justify-content-center">
               <img

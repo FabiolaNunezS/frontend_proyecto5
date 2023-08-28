@@ -9,6 +9,7 @@ const userReducer = (state, action = {}) => {
       return {
         ...state,
         user: action.payload,
+        // carrito: action.payload.carrito || [],
       };
     case types.setError:
       return {

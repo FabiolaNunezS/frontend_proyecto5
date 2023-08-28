@@ -2,8 +2,11 @@ import { useState } from "react";
 import { useContext } from "react";
 import { UserContext } from "../context/user/userContext";
 import { types } from "../context/user/userReducer";
+import axios from "axios";
+import jwt from "jwt-decode";
 
 export const Registro = () => {
+  const [isFetching, setIsFetching] = useState(false);
   const [, dispatch] = useContext(UserContext);
 
   const initialUser = {
@@ -23,13 +26,33 @@ export const Registro = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch({
-      type: types.setUserState,
-      payload: formUser,
-    });
-    setFormUser(initialUser);
+    setIsFetching(true);
+    try {
+      const { data } = await axios.post(
+        "http://localhost:4000/users/",
+        formUser,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const tokenDecodificado = jwt(data.token);
+      console.log(tokenDecodificado);
+      dispatch({
+        type: types.setUserState,
+        payload: tokenDecodificado,
+      });
+
+      window.alert("usuario registrado");
+      setIsFetching(false);
+    } catch (error) {
+      console.log(error);
+      window.alert("Error al registrar usuario");
+      setIsFetching(false);
+    }
   };
   // toast.success("Registro realizado");
 
@@ -115,7 +138,7 @@ export const Registro = () => {
               </label>
               <div className="col-sm-10">
                 <input
-                  type="text"
+                  type="password"
                   id="password"
                   className="form-control mb-3"
                   name="password"
@@ -133,6 +156,8 @@ export const Registro = () => {
                   type="submit"
                   className="btn btn-primary btn-block mb-3 mt-3"
                   id="sumbit"
+                  onChange={handleChange}
+                  disabled={isFetching}
                 >
                   Registrate
                 </button>
