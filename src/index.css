@@ -31,7 +31,7 @@
 .producto-titulo {
   font-weight: bold;
   font-size:40px;
-  color: rgb(115, 200, 249);
+  color: rgb(18, 161, 244);
   
 }
 
@@ -41,3 +41,6 @@
   border-color: blue;
 }
 
+.carousel-container {
+  background-color: #c2c0c0; 
+}

@@ -26,8 +26,6 @@ export const Catalogo = () => {
           </div>
         </div>
         <div className="col-md-6 col-lg-4 mb-4">
-          {" "}
-          {/* Cambios en las clases col-md-6 col-lg-4 */}
           <div className="card">
             <Link to="/producto/2">
               <img

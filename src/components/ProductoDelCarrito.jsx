@@ -1,10 +1,11 @@
 /*slint-diable react/prop-types */
 
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 export const ProductoDelCarrito = ({ producto, setCarritoDeCompras }) => {
   const [contador, setContador] = useState(producto.cantidad);
-  console.log(producto.id);
 
   const aumentar = () => {
     setCarritoDeCompras((productos) => {
@@ -44,12 +45,39 @@ export const ProductoDelCarrito = ({ producto, setCarritoDeCompras }) => {
 
   return (
     <li>
-      <p className="producto-titulo">{producto.titulo}</p>
-      <h3>{producto.precio}</h3>
-      <button onClick={disminuir}>-1</button>
-      <p>{contador}</p>
-      <button onClick={aumentar}>+1</button>
-      <p>Precio total productos: {producto.precio * producto.cantidad}</p>
+      <div
+        className="producto-container"
+        style={{
+          marginBottom: "10px",
+          background: "lightblue",
+          padding: "10px",
+          borderRadius: "8px",
+        }}
+      >
+        <div
+          className="producto-item"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <div>
+            <p className="producto-titulo">{producto.titulo}</p>
+            <h3>${producto.precio}</h3>
+          </div>
+          <div className="btn-container">
+            <button className="btn-icon" onClick={disminuir}>
+              <FontAwesomeIcon icon={faMinus} />
+            </button>
+            <p>{contador}</p>
+            <button className="btn-icon" onClick={aumentar}>
+              <FontAwesomeIcon icon={faPlus} />
+            </button>
+          </div>
+        </div>
+        <p>Precio total productos: ${producto.precio * producto.cantidad}</p>
+      </div>
     </li>
   );
 };

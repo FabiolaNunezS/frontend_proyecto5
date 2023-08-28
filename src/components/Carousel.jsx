@@ -2,7 +2,7 @@ import React from "react";
 
 export const Carousel = () => {
   return (
-    <div id="carouselExample" className="carousel slide">
+    <div id="carouselExample" className="carousel slide carousel-container">
       <div className="carousel-inner">
         <div className="carousel-item active">
           <img
