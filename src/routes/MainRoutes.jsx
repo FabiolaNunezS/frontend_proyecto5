@@ -6,7 +6,6 @@ import { Usuario } from "../pages/Usuario";
 import { Registro } from "../pages/Registro";
 import { Carrito } from "../pages/Carrito";
 import { DetalleProducto1 } from "../pages/DetalleProducto1";
-import { DetalleProducto2 } from "../pages/DetalleProducto2";
 
 export const MainRoutes = ({ setUser, user }) => {
   return (
@@ -18,13 +17,13 @@ export const MainRoutes = ({ setUser, user }) => {
         <Route path="/usuario" element={<Usuario setUser={setUser} />} />
         <Route path="/registrate" element={<Registro setUser={setUser} />} />
         <Route
-          path="/producto/1"
+          path="/dinamica/:id"
           element={<DetalleProducto1 setUser={setUser} />}
         />
-        <Route
-          path="/producto/2"
+        {/* <Route
+          path="/dinamica/:id"
           element={<DetalleProducto2 setUser={setUser} />}
-        />
+        /> */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>

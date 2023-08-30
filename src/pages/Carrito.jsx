@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ProductoDelCarrito } from "../components/ProductoDelCarrito";
 
 const carritoInicial = [
@@ -19,8 +19,6 @@ const carritoInicial = [
 ];
 
 export const Carrito = () => {
-  const navigate = useNavigate();
-
   const [carritoDeCompras, setCarritoDeCompras] = useState(carritoInicial);
 
   const [precioTotal, setPrecioTotal] = useState(0);
@@ -59,11 +57,7 @@ export const Carrito = () => {
           <h2 className="m-0" style={{ color: "black" }}>
             Precio Total: <span style={{ color: "blue" }}>${precioTotal}</span>
           </h2>
-          <Link
-            to="/usuario"
-            className="btn btn-primary btn-sm"
-            onClick={() => navigate("/usuario")}
-          >
+          <Link to="/carrito" className="btn btn-primary btn-sm">
             <img
               src="/images/carrito.png"
               alt="Carrito de Compras"
