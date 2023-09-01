@@ -1,11 +1,22 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { carroTypes } from "../context/carrito/cartReducer";
+import { CartContext } from "../context/carrito/cartContext";
 
 export const DetalleProducto1 = () => {
   const params = useParams();
   const { id } = params;
   const [first, setfirst] = useState(null);
+  const [carrito, dispatch] = useContext(CartContext);
+
+  const agregarAlCarrito = () => {
+    dispatch({
+      type: carroTypes.setCarroState,
+      payload: first,
+    });
+  };
+
   useEffect(() => {
     try {
       const obtenerProducto = async () => {
@@ -40,7 +51,11 @@ export const DetalleProducto1 = () => {
                     <h2 className="card-title">{first?.productName}</h2>
                     <p className="card-text">{first?.descripcion}</p>
                     <h3 className="price">${first?.precio}</h3>
-                    <Link to="/carrito" className="btn btn-primary btn-sm mt-3">
+                    <Link
+                      to="/carrito"
+                      className="btn btn-primary btn-sm mt-3"
+                      onClick={agregarAlCarrito}
+                    >
                       Agregar al carrito
                     </Link>
                   </div>

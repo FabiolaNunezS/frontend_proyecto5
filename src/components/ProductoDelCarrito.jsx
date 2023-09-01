@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 export const ProductoDelCarrito = ({ producto, setCarritoDeCompras }) => {
-  const [contador, setContador] = useState(producto.cantidad);
+  const [contador, setContador] = useState(producto.quantity);
 
   const aumentar = () => {
     setCarritoDeCompras((productos) => {
@@ -13,7 +13,7 @@ export const ProductoDelCarrito = ({ producto, setCarritoDeCompras }) => {
         if (product.id === producto.id) {
           return {
             ...product,
-            cantidad: contador + 1,
+            quantity: contador + 1,
           };
         } else {
           return product;
@@ -31,7 +31,7 @@ export const ProductoDelCarrito = ({ producto, setCarritoDeCompras }) => {
           if (product.id === producto.id) {
             return {
               ...product,
-              cantidad: contador - 1,
+              quantity: contador - 1,
             };
           } else {
             return product;
@@ -63,7 +63,7 @@ export const ProductoDelCarrito = ({ producto, setCarritoDeCompras }) => {
           }}
         >
           <div>
-            <p className="producto-titulo">{producto.titulo}</p>
+            <p className="producto-titulo">{producto.productName}</p>
             <h3>${producto.precio}</h3>
           </div>
           <div className="btn-container">
@@ -76,7 +76,7 @@ export const ProductoDelCarrito = ({ producto, setCarritoDeCompras }) => {
             </button>
           </div>
         </div>
-        <p>Precio total productos: ${producto.precio * producto.cantidad}</p>
+        <p>Precio total productos: ${producto.precio * contador}</p>
       </div>
     </li>
   );

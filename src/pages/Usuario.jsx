@@ -38,6 +38,7 @@ export const Usuario = () => {
           },
         }
       );
+      localStorage.setItem("userProfile", JSON.stringify(data.token));
       const tokenDecodificado = jwt(data.token);
       console.log(tokenDecodificado);
       dispatch({

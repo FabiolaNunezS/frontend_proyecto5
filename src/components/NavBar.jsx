@@ -1,14 +1,16 @@
-import { signOut } from "firebase/auth";
+import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { UserContext } from "../context/user/userContext";
+import { types } from "../context/user/userReducer";
 
-export const NavBar = ({ user, setUser }) => {
-  const navegador = useNavigate();
-  const logOut = async () => {
-    if (window.confirm("desea cerrar sesion")) {
-      await signOut(auth);
-      setUser(null);
-      navegador("/");
-    }
+export const NavBar = () => {
+  const [state, dispatch] = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch({ type: types.setLogout });
+    localStorage.removeItem("userProfile");
+    navigate("/");
   };
 
   return (
@@ -46,12 +48,12 @@ export const NavBar = ({ user, setUser }) => {
               </NavLink>
             </li>
             <li className="nav-item">
-              {!user ? (
+              {!state?.user ? (
                 <NavLink className="nav-link" to="/usuario">
                   Iniciar Sesion
                 </NavLink>
               ) : (
-                <Link className="nav-link" onClick={logOut}>
+                <Link className="nav-link" onClick={handleLogout}>
                   Cerrar Sesion
                 </Link>
               )}

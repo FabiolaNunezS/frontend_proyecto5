@@ -1,32 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { ProductoDelCarrito } from "../components/ProductoDelCarrito";
-
-const carritoInicial = [
-  {
-    titulo: "HSB PINK",
-    precio: 29990,
-    cantidad: 0,
-    id: 1,
-  },
-  {
-    titulo: "HSB DUO",
-    precio: 49990,
-    cantidad: 0,
-    id: 2,
-  },
-  // ... Otros productos en el carrito
-];
+import { CartContext } from "../context/carrito/cartContext";
 
 export const Carrito = () => {
-  const [carritoDeCompras, setCarritoDeCompras] = useState(carritoInicial);
-
+  const [carrito, dispatch] = useContext(CartContext);
+  console.log(carrito);
+  const [carritoDeCompras, setCarritoDeCompras] = useState(carrito.carrito);
   const [precioTotal, setPrecioTotal] = useState(0);
 
   useEffect(() => {
     setPrecioTotal(
       carritoDeCompras.reduce((total, producto) => {
-        return total + producto.precio * producto.cantidad;
+        return total + producto.precio * producto.quantity;
       }, 0)
     );
   }, [carritoDeCompras]);
@@ -45,9 +31,9 @@ export const Carrito = () => {
           Mi Carrito de Compras
         </h1>
         <ul className="list-unstyled" style={{ color: "black" }}>
-          {carritoDeCompras.map((producto) => (
+          {carritoDeCompras?.map((producto) => (
             <ProductoDelCarrito
-              key={producto.id}
+              key={producto._id}
               producto={producto}
               setCarritoDeCompras={setCarritoDeCompras}
             />
