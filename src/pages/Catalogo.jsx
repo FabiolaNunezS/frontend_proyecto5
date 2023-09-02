@@ -7,7 +7,9 @@ export const Catalogo = () => {
   useEffect(() => {
     try {
       const obtenerProducto = async () => {
-        const { data } = await axios.get("http://localhost:4000/products");
+        const { data } = await axios.get(
+          "https://finalproyecto5.onrender.com/products"
+        );
         setfirst(data);
         console.log(first);
       };

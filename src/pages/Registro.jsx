@@ -31,7 +31,7 @@ export const Registro = () => {
     setIsFetching(true);
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/users/",
+        "https://finalproyecto5.onrender.com/users/",
         formUser,
         {
           headers: {

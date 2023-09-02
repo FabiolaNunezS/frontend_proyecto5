@@ -21,7 +21,7 @@ export const DetalleProducto1 = () => {
     try {
       const obtenerProducto = async () => {
         const { data } = await axios.get(
-          `http://localhost:4000/products/dinamica/${id}`
+          `https://finalproyecto5.onrender.com/products/dinamica/${id}`
         );
         setfirst(data.detail);
         console.log(first);
