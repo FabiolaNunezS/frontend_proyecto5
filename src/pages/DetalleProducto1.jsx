@@ -35,9 +35,9 @@ export const DetalleProducto1 = () => {
   return (
     <>
       <div className="container">
-        <div className="row">
-          <div className="col-md-12">
-            <div className="card product-card product-card-thick-border">
+        <div className="card product-card product-card-thick-border">
+          <div className="row">
+            <div className="col-md-12">
               <div className="row g-0">
                 <div className="col-md-4">
                   <img
@@ -64,63 +64,6 @@ export const DetalleProducto1 = () => {
             </div>
           </div>
         </div>
-        {/* <ul className="rowProduct">
-        {first?.detail.map((elemeto) => (
-          <Link
-          to={`/dinamica/${elemeto._id}`}
-          className="listD"
-          key={elemeto._id}
-          >
-          <li className="divCproduc">
-          <div className="divCproducimg">
-          <img src="../images/pink.jpeg" />
-              </div>
-              
-              <p className="nombreProduct">{elemeto.productName}</p>
-              
-              <p> ${elemeto.stock}</p>
-              
-              <button className="btnAgregar" type="submit">
-                Agregar al Carrito
-              </button>
-            </li>
-          </Link>
-        ))}
-      </ul> */}
-
-        {/* {JSON.stringify(first)} */}
-
-        {/* <div className="row">
-          {first?.detail.map((el) => (
-            <div key={el._id} className="col-md-12">
-              <div className="card product-card product-card-thick-border">
-                <div className="row g-0">
-                  <div className="col-md-4">
-                    <img
-                      src="../images/pink.jpeg"
-                      className="card-img img-small"
-                      alt="Hermoso vaso térmico"
-                    />
-                  </div>
-                  <div className="col-md-8">
-                    <div className="card-body">
-                      <h2 className="card-title">{el.productName}</h2>
-                      <p>{el.descripcion}</p>
-                      <h3 className="price">${el.precio}</h3>
-                      <Link
-                        to={`/dinamica/${el._id}`}
-                        className="btn btn-primary btn-sm mt-3"
-                        // onClick={agregarAlCarrito}
-                      >
-                        Agregar al carrito
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div> */}
       </div>
     </>
   );

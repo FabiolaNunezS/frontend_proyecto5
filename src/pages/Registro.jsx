@@ -54,7 +54,6 @@ export const Registro = () => {
       setIsFetching(false);
     }
   };
-  // toast.success("Registro realizado");
 
   return (
     <>

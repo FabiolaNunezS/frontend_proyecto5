@@ -6,7 +6,7 @@ import { types } from "../context/user/userReducer";
 import axios from "axios";
 import jwt from "jwt-decode";
 
-export const Usuario = () => {
+export const PerfilUsuario = () => {
   const [isFetching, setIsFetching] = useState(false);
   const [, dispatch] = useContext(UserContext);
   const navigate = useNavigate();

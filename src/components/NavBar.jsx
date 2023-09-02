@@ -48,6 +48,11 @@ export const NavBar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
+              <NavLink className="nav-link" to="/perfil">
+                Perfil
+              </NavLink>
+            </li>
+            <li className="nav-item">
               {!state?.user ? (
                 <NavLink className="nav-link" to="/usuario">
                   Iniciar Sesion
