@@ -1,8 +1,8 @@
-# React + Vite
+# PROYECTO 5 DE ECOMMERCE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+##CONTIENE:
+Rutas de usuario, Rutas de perfil, Rutas de catalogo, Ruta de home, Ruta de registro
 
-Currently, two official plugins are available:
+#Se utilizaron rutas dinamicas, contextApi, Axios, UseEffect
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#AL REGISTRATE TIENE QUE SER UNA CONTRASEÑA CON AL MENOS 8 CARACTERES INCLUYENDO MAYUSCULA Y MINUSCULAS
